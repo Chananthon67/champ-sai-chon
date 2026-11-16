@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio | ชนันธร ทองเสม</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --blue: #1d4ed8;
+            --dark: #102b55;
+            --light: #eff6ff;
+            --white: #ffffff;
+            --text: #334155;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #f8fafc;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px #0000000d;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--blue);
+        }
+
+        /* HOME */
+
+        .home {
+            min-height: 90vh;
+            background: linear-gradient(
+                135deg,
+                #102b55,
+                #1d4ed8
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .home-content {
+            max-width: 850px;
+        }
+
+        .home-content .welcome {
+            color: #bfdbfe;
+            font-size: 17px;
+            letter-spacing: 2px;
+        }
+
+        .home h1 {
+            font-size: 45px;
+            margin: 15px 0;
+        }
+
+        .home h2 {
+            font-size: 23px;
+            font-weight: 400;
+            color: #dbeafe;
+        }
+
+        .home p {
+            margin-top: 15px;
+            color: #dbeafe;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            background: white;
+            color: var(--blue);
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            background: #dbeafe;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark);
+        }
+
+        .section-title p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        /* ABOUT */
+
+        .about-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px #00000008;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #dbeafe;
+            margin-bottom: 20px;
+        }
+
+        .about-box h3 {
+            color: var(--blue);
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            background: white;
+            padding: 30px;
+            border-left: 5px solid var(--blue);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #00000008;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .education-card h3 {
+            color: var(--blue);
+        }
+
+        /* SKILLS */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px 15px;
+            text-align: center;
+            border-radius: 15px;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px #00000008;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            background: var(--light);
+        }
+
+        .skill-card .icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card h3 {
+            color: var(--dark);
+            font-size: 18px;
+        }
+
+        /* ACTIVITIES */
+
+        .activity-container {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px #00000008;
+            transition: 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .activity-card .info {
+            padding: 20px;
+        }
+
+        .activity-card h3 {
+            color: var(--blue);
+        }
+
+        /* CERTIFICATES */
+
+        .certificate-container {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .certificate-container img {
+            width: 100%;
+            border-radius: 12px;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 5px 20px #00000010;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: var(--dark);
+            text-align: center;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin: 8px 0;
+        }
+
+        .contact a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0b1c36;
+            text-align: center;
+            color: #cbd5e1;
+            padding: 18px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .home h1 {
+                font-size: 30px;
+            }
+
+            .home h2 {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .about-box {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">CHANANTHON.</div>
+
+        <ul>
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#about">เกี่ยวกับฉัน</a></li>
+            <li><a href="#education">การศึกษา</a></li>
+            <li><a href="#skills">ทักษะ</a></li>
+            <li><a href="#activities">กิจกรรม</a></li>
+            <li><a href="#contact">ติดต่อ</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME -->
+    <header class="home" id="home">
+        <div class="home-content">
+
+            <p class="welcome">
+                WELCOME TO MY PORTFOLIO
+            </p>
+
+            <h1>นายชนันธร ทองเสม</h1>
+
+            <h2>
+                นักเรียนระดับประกาศนียบัตรวิชาชีพ ชั้นปีที่ 2
+            </h2>
+
+            <p>
+                วิทยาลัยเทคนิคสิงห์บุรี
+            </p>
+
+            <p>
+                "การเรียนรู้ไม่มีที่สิ้นสุด
+                ทุกประสบการณ์คือการพัฒนาตนเอง"
+            </p>
+
+            <a href="#about" class="btn">
+                รู้จักฉันเพิ่มเติม
+            </a>
+
+        </div>
+    </header>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>ABOUT ME</h2>
+            <p>ประวัติส่วนตัวและข้อมูลแนะนำตัว</p>
+        </div>
+
+        <div class="about-box">
+
+            <img src="profile.jpg"
+                 alt="รูปภาพนายชนันธร ทองเสม"
+                 class="17196.jpg">
+
+            <h3>ชนันธร ทองเสม</h3>
+
+            <p>
+                สวัสดีครับ ผมชื่อนายชนันธร ทองเสม
+                ปัจจุบันกำลังศึกษาอยู่ระดับประกาศนียบัตรวิชาชีพ
+                ชั้นปีที่ 2 วิทยาลัยเทคนิคสิงห์บุรี
+            </p>
+
+            <p>
+                ผมเป็นคนที่มีความสนใจในการเรียนรู้สิ่งใหม่ ๆ
+                พร้อมพัฒนาความรู้ ความสามารถ และประสบการณ์
+                เพื่อนำไปประยุกต์ใช้ในอนาคต
+            </p>
+
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="section-title">
+            <h2>EDUCATION</h2>
+            <p>ประวัติการศึกษา</p>
+        </div>
+
+        <div class="education-card">
+
+            <h3>วิทยาลัยเทคนิคสิงห์บุรี</h3>
+
+            <p>
+                ระดับการศึกษา :
+                ประกาศนียบัตรวิชาชีพ (ปวช.)
+            </p>
+
+            <p>
+                ระดับชั้น : ปวช.2
+            </p>
+
+            <p>
+                สถานศึกษา : วิทยาลัยเทคนิคสิงห์บุรี
+            </p>
+
+            <p>
+                สาขาวิชา : เทคโนโลยีสารสนเทศ
+            </p>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>MY SKILLS</h2>
+            <p>ทักษะและความสามารถ</p>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <div class="icon">💻</div>
+                <h3>Computer</h3>
+                <p>ทักษะการใช้คอมพิวเตอร์</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🌐</div>
+                <h3>Technology</h3>
+                <p>ความสนใจด้านเทคโนโลยี</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🎨</div>
+                <h3>Creativity</h3>
+                <p>ความคิดสร้างสรรค์</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🤝</div>
+                <h3>Teamwork</h3>
+                <p>การทำงานร่วมกับผู้อื่น</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <h2>CONTACT ME</h2>
+
+        <p>ขอบคุณที่เข้ามาเยี่ยมชม Portfolio ของผม</p>
+
+        <p>ชื่อ : นายชนันธร ทองเสม</p>
+
+        <p>สถานศึกษา : วิทยาลัยเทคนิคสิงห์บุรี</p>
+
+        <p>อีเมล : <a href="mailto:chananthor431@gmail.com">
+            chananthor431@gmail.com
+        </a></p>
+
+        <p>Facebook : <a href="#">https://www.facebook.com/share/1EGHh5T9Q1/</a></p>
+
+        <p>Instagram : <a href="#">https://www.instagram.com/chxmprx1q._?rpxt=NzQyeW1va2ZuOXBj</a></p>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 CHANANTHON THONGSEM |
+            MY PERSONAL PORTFOLIO
+        </p>
+    </footer>
+
+</body>
+</html>
